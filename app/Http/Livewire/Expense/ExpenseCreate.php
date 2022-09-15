@@ -14,9 +14,7 @@ class ExpenseCreate extends Component
 
     public function createExpense()
     {
-        Expanse::create([
-            
-        ])
+
     }
 
     public function render()
