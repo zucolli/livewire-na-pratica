@@ -14,7 +14,12 @@ class ExpenseCreate extends Component
 
     public function createExpense()
     {
-
+        Expense::create([
+            'amount' => $this->amount,
+            'type' => $this->type,
+            'description' => $this->description,
+            'user_id' => 1
+        ]);
     }
 
     public function render()

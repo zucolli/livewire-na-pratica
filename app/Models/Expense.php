@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expanse extends Model
+class Expense extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['description', 'type', 'amount'];
+    protected $fillable = ['user_id', 'description', 'type', 'amount'];
 
     public function user()
     {
