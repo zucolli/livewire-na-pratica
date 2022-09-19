@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Expense;
 
 use Livewire\Component;
-use App\Models\Expanse;
+use App\Models\Expense;
 
 class ExpenseCreate extends Component
 {
@@ -12,8 +12,16 @@ class ExpenseCreate extends Component
     public $type;
     public $description;
 
+    protected $rules = [
+        'amount' => 'required',
+        'type' => 'required',
+        'description' => 'required'
+    ];
+
     public function createExpense()
     {
+        $this->validate();
+
         Expense::create([
             'amount' => $this->amount,
             'type' => $this->type,
