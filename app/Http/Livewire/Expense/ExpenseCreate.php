@@ -28,6 +28,11 @@ class ExpenseCreate extends Component
             'description' => $this->description,
             'user_id' => 1
         ]);
+
+        session()->flash('message', 'Registro criado com sucesso!');
+
+        $this->amount = $this->type = $this->description = null;
+
     }
 
     public function render()

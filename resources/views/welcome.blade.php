@@ -20,14 +20,8 @@
             }
         </style>
 
-        @livewireStyles
-
     </head>
     <body class="antialiased">
-
-        @livewire('expense.expense-create')
-
-        @livewireScripts
 
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))

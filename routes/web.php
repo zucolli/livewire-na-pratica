@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Expense\ExpenseCreate;
+use App\Http\Livewire\Expense\ExpenseEdit;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::prefix('expenses')->name('expenses.')->group(function () {
+        Route::get('/create', ExpenseCreate::class)->name('create');
+        Route::get('/edit/{expense}', ExpenseEdit::class)->name('edit');
+    });
 });
