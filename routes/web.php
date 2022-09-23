@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Expense\ExpenseCreate;
 use App\Http\Livewire\Expense\ExpenseEdit;
+use App\Http\Livewire\Expense\ExpenseList;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('expenses')->name('expenses.')->group(function () {
+        Route::get('/', ExpenseList::class)->name('index');
         Route::get('/create', ExpenseCreate::class)->name('create');
         Route::get('/edit/{expense}', ExpenseEdit::class)->name('edit');
     });

@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class ExpenseEdit extends Component
 {
+
     public Expense $expense;
 
     public $description;
@@ -21,9 +22,9 @@ class ExpenseEdit extends Component
 
     public function mount()
     {
-        $this->description  = $this->$expense->description;
-        $this->amount       = $this->$expense->amount;
-        $this->type         = $this->$expense->type;
+        $this->description  = $this->expense->description;
+        $this->amount       = $this->expense->amount;
+        $this->type         = $this->expense->type;
     }
 
     public function updateExpense()
